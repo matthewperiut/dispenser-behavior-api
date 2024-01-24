@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.matthewperiut.dispenserbehaviorapi.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BucketMixin",
+    "DispenserBlockMixin",
+    "EggMixin",
+    "SnowballMixin"
+  ],
+  "client": [
+    "ExampleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
