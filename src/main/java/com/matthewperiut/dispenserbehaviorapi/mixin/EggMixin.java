@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(EggItem.class)
 public class EggMixin implements DispenserBehavior {
     @Override
-    public void dispense(World world, ItemStack item, Vec3d dispenserPos, Vec3d direction, Vec3d velocity) {
+    public void dispense(World world, ItemStack item, Integer slotPos, ItemStack[] dispenserInventory, Vec3d dispenserPos, Vec3d direction, Vec3d velocity) {
         EggEntity egg = new EggEntity(world, velocity.x, velocity.y, velocity.z);
         egg.method_1682((double)direction.x, 0.10000000149011612, (double)direction.z, 1.1F, 6.0F);
         world.method_210(egg);

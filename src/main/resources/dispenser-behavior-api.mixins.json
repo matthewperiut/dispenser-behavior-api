@@ -5,12 +5,12 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "BucketMixin",
+    "DispenserBlockEntityMixin",
     "DispenserBlockMixin",
     "EggMixin",
     "SnowballMixin"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
