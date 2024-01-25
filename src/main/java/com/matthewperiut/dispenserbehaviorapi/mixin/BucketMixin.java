@@ -25,7 +25,7 @@ public class BucketMixin implements DispenserBehavior {
             Vec3d target = dispenserPos.add(direction.x, direction.y, direction.z);
             if (world.getBlockId((int) target.x, (int) target.y, (int) target.z) == 0) {
                 world.setBlock((int) target.x, (int) target.y, (int) target.z, field_842);
-                if (null != DispenserBehaviorAPI.dispenserInventory)
+                if (null != dispenserInventory)
                 {
                     dispenserInventory[slotPos] = new ItemStack(Item.BUCKET);
                 }
