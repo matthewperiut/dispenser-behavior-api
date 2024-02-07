@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(SnowballItem.class)
 public class SnowballMixin implements DispenserBehavior {
     @Override
-    public void dispense(World world, ItemStack item, Vec3d dispenserPos, Vec3d direction, Vec3d velocity) {
+    public void dispense(World world, ItemStack item, Integer slotPos, ItemStack[] dispenserInventory, Vec3d dispenserPos, Vec3d direction, Vec3d velocity) {
         SnowballEntity snowball = new SnowballEntity(world, velocity.x, velocity.y, velocity.z);
         snowball.method_1656((double)direction.x, 0.10000000149011612, (double)direction.z, 1.1F, 6.0F);
         world.method_210(snowball);

@@ -1,6 +1,7 @@
 package com.matthewperiut.dispenserbehaviorapi.mixin;
 
 import com.matthewperiut.dispenserbehaviorapi.DispenserBehavior;
+import com.matthewperiut.dispenserbehaviorapi.DispenserBehaviorAPI;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.entity.DispenserBlockEntity;
 import net.minecraft.entity.ItemEntity;
@@ -54,7 +55,7 @@ public class DispenserBlockMixin {
             world.method_230(1002, x, y, z, 0);
         }
         else if (item.getItem() instanceof DispenserBehavior)
-            ((DispenserBehavior) item.getItem()).dispense(world, item, Vec3d.create(x, y, z), Vec3d.create(xDir,0,zDir), Vec3d.create(xVel, yVel, zVel));
+            ((DispenserBehavior) item.getItem()).dispense(world, item, DispenserBehaviorAPI.slotDispensed, DispenserBehaviorAPI.dispenserInventory, Vec3d.create(x, y, z), Vec3d.create(xDir,0,zDir), Vec3d.create(xVel, yVel, zVel));
         else {
             ItemEntity itemEntity = new ItemEntity(world, xVel, yVel - 0.3, zVel, item);
             double var20 = random.nextDouble() * 0.1 + 0.2;

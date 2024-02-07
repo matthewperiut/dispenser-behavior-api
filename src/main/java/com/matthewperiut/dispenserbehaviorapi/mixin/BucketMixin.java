@@ -1,8 +1,10 @@
 package com.matthewperiut.dispenserbehaviorapi.mixin;
 
 import com.matthewperiut.dispenserbehaviorapi.DispenserBehavior;
+import com.matthewperiut.dispenserbehaviorapi.DispenserBehaviorAPI;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.BucketItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -16,13 +18,17 @@ public class BucketMixin implements DispenserBehavior {
     @Shadow private int field_842;
 
     @Override
-    public void dispense(World world, ItemStack item, Vec3d dispenserPos, Vec3d direction, Vec3d velocity) {
+    public void dispense(World world, ItemStack item, Integer slotPos, ItemStack[] dispenserInventory, Vec3d dispenserPos, Vec3d direction, Vec3d velocity) {
 
         boolean good = false;
         if (field_842 > 0) {
             Vec3d target = dispenserPos.add(direction.x, direction.y, direction.z);
             if (world.getBlockId((int) target.x, (int) target.y, (int) target.z) == 0) {
                 world.setBlock((int) target.x, (int) target.y, (int) target.z, field_842);
+                if (null != dispenserInventory)
+                {
+                    dispenserInventory[slotPos] = new ItemStack(Item.BUCKET);
+                }
                 good = true;
             }
         }
